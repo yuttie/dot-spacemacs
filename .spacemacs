@@ -11,5 +11,5 @@
                                           :size 16
                                           :weight normal
                                           :width normal
-                                          :powerline-scale 1.1))
+                                          :powerline-scale 1.2))
 (setq-default dotspacemacs-line-numbers t)
