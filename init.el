@@ -27,6 +27,7 @@ values."
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-help-tooltip t)
      better-defaults
+     deft
      emacs-lisp
      git
      markdown
