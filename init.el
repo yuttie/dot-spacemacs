@@ -59,6 +59,7 @@ values."
      syntax-checking
      vim-empty-lines
      ;; Private layers
+     hlinum
      hydrangea-theme
      )
    ;; List of additional packages that will be installed without being
