@@ -28,16 +28,36 @@ values."
                       auto-completion-enable-help-tooltip t)
      better-defaults
      deft
-     emacs-lisp
-     git
-     markdown
      org
+     ;; Development
+     git
+     ;; Languages
+     asciidoc
+     c-c++
+     d
+     emacs-lisp
+     ess
+     haskell
+     html
+     ipython-notebook
+     javascript
+     latex
+     markdown
+     ocaml
+     php
+     python
+     ruby
+     rust
+     sql
+     typescript
+     vimscript
+     yaml
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     ;; version-control
+     vim-empty-lines
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
