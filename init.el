@@ -274,6 +274,8 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; C-h
+  (define-key key-translation-map (kbd "C-h") (kbd "DEL"))
   ;; Escape
   (setq-default evil-escape-key-sequence "tn")
   ;; Swap C-x and C-t
