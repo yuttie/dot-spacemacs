@@ -1,5 +1,8 @@
 (setq hlinum-packages
-      '(hlinum))
+      '(
+        hlinum
+        ))
+
 (defun hlinum/init-hlinum ()
   (use-package hlinum
     :config
