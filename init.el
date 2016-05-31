@@ -281,7 +281,7 @@ you should place your code here."
   ;; C-h
   (define-key key-translation-map (kbd "C-h") (kbd "DEL"))
   ;; Escape
-  (setq-default evil-escape-key-sequence "tn")
+  (setq-default evil-escape-key-sequence "ts")
   ;; Swap C-x and C-t
   (defun swap-C-x-and-C-t (frame)
     (with-selected-frame frame
