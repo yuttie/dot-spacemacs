@@ -60,7 +60,6 @@ values."
      ;;        shell-default-position 'bottom)
      spell-checking
      syntax-checking
-     vim-empty-lines
      ;; Private layers
      hlinum
      hydrangea-theme
@@ -68,6 +67,7 @@ values."
      highlight-symbol
      htmlize
      rainbow-mode
+     ddskk
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
