@@ -304,6 +304,8 @@ you should place your code here."
   (setq indent-guide-delay 0.1)
   (setq indent-guide-recursive t)
   (add-hook 'prog-mode-hook #'indent-guide-mode)
+  ;; git-gutter+
+  (setq git-gutter-fr+-side 'left-fringe)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
