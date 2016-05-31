@@ -292,6 +292,14 @@ you should place your code here."
       (keyboard-translate ?\C-x ?\C-t)))
   (swap-C-x-and-C-t (selected-frame))
   (add-hook 'after-make-frame-functions #'swap-C-x-and-C-t)
+  ;; Evil
+  (setq evil-want-fine-undo nil)
+  (define-key evil-insert-state-map (kbd "C-a") #'move-beginning-of-line)
+  (define-key evil-insert-state-map (kbd "C-e") #'move-end-of-line)
+  (define-key evil-motion-state-map   (kbd "<remap> <evil-next-line>")     #'evil-next-visual-line)
+  (define-key evil-motion-state-map   (kbd "<remap> <evil-previous-line>") #'evil-previous-visual-line)
+  (define-key evil-operator-state-map (kbd "<remap> <evil-next-line>")     #'evil-next-line)
+  (define-key evil-operator-state-map (kbd "<remap> <evil-previous-line>") #'evil-previous-line)
   ;; indent-guide
   (setq indent-guide-delay 0.1)
   (setq indent-guide-recursive t)
