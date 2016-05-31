@@ -289,6 +289,10 @@ you should place your code here."
       (keyboard-translate ?\C-x ?\C-t)))
   (swap-C-x-and-C-t (selected-frame))
   (add-hook 'after-make-frame-functions #'swap-C-x-and-C-t)
+  ;; indent-guide
+  (setq indent-guide-delay 0.1)
+  (setq indent-guide-recursive t)
+  (add-hook 'prog-mode-hook #'indent-guide-mode)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
