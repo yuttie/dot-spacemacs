@@ -31,6 +31,9 @@ values."
      org
      ;; Development
      git
+     (version-control :variables
+                      version-control-diff-tool 'git-gutter+
+                      version-control-global-margin t)
      ;; Languages
      asciidoc
      c-c++
