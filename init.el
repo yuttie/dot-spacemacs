@@ -34,6 +34,7 @@ values."
      (version-control :variables
                       version-control-diff-tool 'git-gutter+
                       version-control-global-margin t)
+     gtags
      ;; Languages
      asciidoc
      c-c++
