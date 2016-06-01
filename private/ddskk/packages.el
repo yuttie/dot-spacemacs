@@ -7,7 +7,6 @@
   (use-package skk
     :defer t
     :init
-    (use-package skk-autoloads)
     (global-set-key (kbd "C-x C-j") #'skk-auto-fill-mode)
     (global-set-key (kbd "C-x j")   #'skk-mode)
     (global-set-key (kbd "C-x t")   #'skk-tutorial)
