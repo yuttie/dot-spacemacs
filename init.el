@@ -51,7 +51,8 @@ values."
      php
      python
      ruby
-     rust
+     (rust :variables
+           rust-enable-racer t)
      sql
      typescript
      vimscript
