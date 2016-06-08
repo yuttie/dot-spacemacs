@@ -302,6 +302,8 @@ you should place your code here."
   (define-key evil-motion-state-map   (kbd "<remap> <evil-previous-line>") #'evil-previous-visual-line)
   (define-key evil-operator-state-map (kbd "<remap> <evil-next-line>")     #'evil-next-line)
   (define-key evil-operator-state-map (kbd "<remap> <evil-previous-line>") #'evil-previous-line)
+  ;; company-mode
+  (setq company-tooltip-align-annotations t)
   ;; indent-guide
   (setq indent-guide-delay 0.1)
   (setq indent-guide-recursive t)
