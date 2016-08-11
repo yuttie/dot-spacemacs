@@ -274,6 +274,12 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   ;; Ignore a warning about PATH and MANPATH from exec-path-from-shell.el
   (setq exec-path-from-shell-check-startup-files nil)
+  ;; Indentation for CC Mode
+  (setq c-default-style
+        '((java-mode . "java")
+          (awk-mode  . "awk")
+          (other     . "bsd")))
+  (setq-default c-basic-offset 4)
   )
 
 (defun dotspacemacs/user-config ()
