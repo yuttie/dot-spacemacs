@@ -54,6 +54,8 @@ values."
            ruby-enable-enh-ruby-mode t)
      (rust :variables
            rust-enable-racer t)
+     (spacemacs-layouts :variables
+                        spacemacs-layouts-directory "./")
      sql
      typescript
      vimscript
