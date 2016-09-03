@@ -326,6 +326,7 @@ you should place your code here."
   (setq indent-guide-recursive t)
   (add-hook 'prog-mode-hook #'indent-guide-mode)
   ;; git-gutter+
+  (setq git-gutter+-diff-options '("--compaction-heuristic"))
   (setq git-gutter-fr+-side 'left-fringe)
   )
 
