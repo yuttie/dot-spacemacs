@@ -313,6 +313,8 @@ you should place your code here."
   (define-key evil-operator-state-map (kbd "<remap> <evil-previous-line>") #'evil-previous-line)
   ;; company-mode
   (setq company-tooltip-align-annotations t)
+  (define-key company-active-map (kbd "C-n") #'company-simple-complete-next)
+  (define-key company-active-map (kbd "C-p") #'company-simple-complete-previous)
   ;; disable flycheck-pos-tip-mode temporarily during completion
   (defvar-local company-flycheck-pos-tip-mode-on-p nil)
   (defun company-turn-off-flycheck-pos-tip (&rest ignore)
