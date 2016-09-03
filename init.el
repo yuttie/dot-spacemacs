@@ -310,6 +310,17 @@ you should place your code here."
   (define-key evil-operator-state-map (kbd "<remap> <evil-previous-line>") #'evil-previous-line)
   ;; company-mode
   (setq company-tooltip-align-annotations t)
+  ;; disable flycheck-pos-tip-mode temporarily during completion
+  (defvar-local company-flycheck-pos-tip-mode-on-p nil)
+  (defun company-turn-off-flycheck-pos-tip (&rest ignore)
+    (when (boundp 'flycheck-pos-tip-mode)
+      (setq company-flycheck-pos-tip-mode-on-p flycheck-pos-tip-mode)
+      (when flycheck-pos-tip-mode (flycheck-pos-tip-mode -1))))
+  (defun company-maybe-turn-on-flycheck-pos-tip (&rest ignore)
+    (when company-flycheck-pos-tip-mode-on-p (flycheck-pos-tip-mode 1)))
+  (add-hook 'company-completion-started-hook 'company-turn-off-flycheck-pos-tip)
+  (add-hook 'company-completion-finished-hook 'company-maybe-turn-on-flycheck-pos-tip)
+  (add-hook 'company-completion-cancelled-hook 'company-maybe-turn-on-flycheck-pos-tip)
   ;; indent-guide
   (setq indent-guide-delay 0.1)
   (setq indent-guide-recursive t)
