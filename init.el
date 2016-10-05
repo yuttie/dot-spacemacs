@@ -78,7 +78,10 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages
+   '(
+     (inertial-scroll :location (recipe :fetcher github :repo "kiwanami/emacs-inertial-scroll"))
+     )
    ;; A list of packages and/or extensions that will not be install and loaded.
    dotspacemacs-excluded-packages '()
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
@@ -333,6 +336,32 @@ you should place your code here."
   ;; git-gutter+
   (setq git-gutter+-diff-options '("--compaction-heuristic"))
   (setq git-gutter-fr+-side 'left-fringe)
+  ;; inertial-scroll
+  (use-package inertial-scroll
+    :config
+    (setq inertias-initial-velocity 60)
+    (setq inertias-initial-velocity-wheel 30)
+    (setq inertias-update-time (/ 1000.0 60))
+    (setq inertias-rest-coef 0)
+    (setq inertias-rebound-flash nil)
+    (setq inertias-global-minor-mode-map
+          (inertias-define-keymap
+           '(("<next>"  . inertias-up)
+             ("<prior>" . inertias-down)
+             ("<wheel-up>"   . inertias-down-wheel)
+             ("<wheel-down>" . inertias-up-wheel)
+             ("<mouse-4>"    . inertias-down-wheel)
+             ("<mouse-5>"    . inertias-up-wheel))
+           inertias-prefix-key))
+    (inertias-global-minor-mode)  ; if comes before map, mapping doesn't work
+                                        ;(global-set-key (vector mouse-wheel-down-event) #'inertias-down)
+                                        ;(global-set-key (vector mouse-wheel-up-event)   #'inertias-up)
+
+    (with-eval-after-load 'evil
+      (evil-declare-not-repeat #'inertias-up)
+      (evil-declare-not-repeat #'inertias-down)
+      (define-key evil-normal-state-map (kbd "C-f") #'inertias-up)
+      (define-key evil-normal-state-map (kbd "C-b") #'inertias-down)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
