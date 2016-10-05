@@ -80,6 +80,7 @@ values."
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages
    '(
+     base16-theme
      (inertial-scroll :location (recipe :fetcher github :repo "kiwanami/emacs-inertial-scroll"))
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -136,10 +137,11 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(hydrangea
-                         spacemacs-dark
+   dotspacemacs-themes '(leuven
+                         base16-default-light
                          spacemacs-light
-                         leuven)
+                         hydrangea
+                         spacemacs-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
