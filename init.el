@@ -336,6 +336,8 @@ you should place your code here."
   ;; git-gutter+
   (setq git-gutter+-diff-options '("--compaction-heuristic"))
   (setq git-gutter-fr+-side 'left-fringe)
+  ;; Tramp
+  (setq tramp-shell-prompt-pattern "\\(?:^\\|\\)[^]#$%>\n]*#?[]#$%>] *\\(\\[[0-9;]*[a-zA-Z] *\\)*")
   ;; inertial-scroll
   (use-package inertial-scroll
     :config
