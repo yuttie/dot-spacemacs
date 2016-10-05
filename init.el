@@ -28,6 +28,7 @@ values."
                       auto-completion-enable-help-tooltip t)
      better-defaults
      deft
+     ivy
      org
      ;; Development
      git
