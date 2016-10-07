@@ -23,31 +23,33 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     ;; Checkers
+     spell-checking
+     syntax-checking
+     ;; Completion
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-help-tooltip t)
+     ;; Emacs
      better-defaults
-     deft
-     ivy
      org
-     ;; Development
-     git
-     (version-control :variables
-                      version-control-diff-tool 'git-gutter+
-                      version-control-global-margin t)
-     gtags
-     ;; Languages
+     typography
+     ;; Programming and markup languages
      asciidoc
+     bibtex
      c-c++
+     csv
      d
      emacs-lisp
      ess
+     graphviz
      haskell
      html
      ipython-notebook
      javascript
      latex
      markdown
+     nim
      ocaml
      php
      python
@@ -55,17 +57,24 @@ values."
            ruby-enable-enh-ruby-mode t)
      (rust :variables
            rust-enable-racer t)
-     (spacemacs-layouts :variables
-                        spacemacs-layouts-directory "./")
+     shell-scripts
      sql
      typescript
      vimscript
      yaml
-     ;; (shell :variables
-     ;;        shell-default-height 30
-     ;;        shell-default-position 'bottom)
-     spell-checking
-     syntax-checking
+     ;; Source control
+     git
+     (version-control :variables
+                      version-control-diff-tool 'git-gutter+
+                      version-control-global-margin t)
+     ;; Spacemacs distribution layers
+     (spacemacs-layouts :variables
+                        spacemacs-layouts-directory "./")
+     ;; Tags
+     gtags
+     ;; Tools
+     deft
+     nginx
      ;; Private layers
      hlinum
      hydrangea-theme
