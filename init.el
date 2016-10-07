@@ -309,6 +309,8 @@ you should place your code here."
       (keyboard-translate ?\C-x ?\C-t)))
   (swap-C-x-and-C-t (selected-frame))
   (add-hook 'after-make-frame-functions #'swap-C-x-and-C-t)
+  ;; Scroll
+  (setq scroll-margin 3)
   ;; Evil
   (setq evil-want-fine-undo nil)
   (define-key evil-insert-state-map (kbd "C-a") #'move-beginning-of-line)
