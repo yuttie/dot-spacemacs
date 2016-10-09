@@ -106,6 +106,7 @@ values."
    '(
      base16-theme
      (inertial-scroll :location (recipe :fetcher github :repo "kiwanami/emacs-inertial-scroll"))
+     color-theme-sanityinc-tomorrow
      )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -178,7 +179,8 @@ values."
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
-   dotspacemacs-themes '(leuven
+   dotspacemacs-themes '(sanityinc-tomorrow-day
+                         leuven
                          base16-default-light
                          spacemacs-light
                          hydrangea
