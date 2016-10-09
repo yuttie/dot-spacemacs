@@ -360,6 +360,18 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  ;; Add fallback fonts to the default fontset.
+  ;; The second argument NAME must be `t' so that these fallback fonts are used
+  ;; not only in the initial frame but also in subsequent frames.
+  (set-fontset-font t 'unicode "Midway Nerd Font" nil 'append)
+  (set-fontset-font t 'unicode "Source Code Pro" nil 'append)
+  (set-fontset-font t 'unicode "M+ 1m" nil 'append)
+  (set-fontset-font t 'unicode "Source Han Code JP" nil 'append)
+  (set-fontset-font t 'unicode "PowerlineSymbols" nil 'append)
+  (set-fontset-font t 'unicode "seti" nil 'append)
+  (set-fontset-font t 'unicode "icomoon" nil 'append)
+  (set-fontset-font t 'unicode "FontAwesome" nil 'append)
+  (set-fontset-font t 'unicode "octicons" nil 'append)
   ;; C-h
   (define-key key-translation-map (kbd "C-h") (kbd "DEL"))
   ;; Escape
