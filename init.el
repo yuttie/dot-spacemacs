@@ -400,6 +400,84 @@ you should place your code here."
   (setq company-tooltip-align-annotations t)
   (define-key company-active-map (kbd "C-n") #'company-simple-complete-next)
   (define-key company-active-map (kbd "C-p") #'company-simple-complete-previous)
+  ;; Helm
+  ;; Break ties by lexicographic order
+  (defun my-helm-generic-sort-fn (s1 s2)
+    "Sort predicate function for helm candidates.
+Args S1 and S2 can be single or \(display . real\) candidates,
+that is sorting is done against real value of candidate."
+    (let* ((qpattern (regexp-quote helm-pattern))
+           (reg1  (concat "\\_<" qpattern "\\_>"))
+           (reg2  (concat "\\_<" qpattern))
+           (reg3  helm-pattern)
+           (split (split-string helm-pattern))
+           (str1  (if (consp s1) (cdr s1) s1))
+           (str2  (if (consp s2) (cdr s2) s2))
+           (score (lambda (str r1 r2 r3 lst)
+                    (+ (if (string-match (concat "\\`" qpattern) str) 1 0)
+                       (cond ((string-match r1 str) 5)
+                             ((and (string-match " " qpattern)
+                                   (string-match
+                                    (concat "\\_<" (regexp-quote (car lst))) str)
+                                   (cl-loop for r in (cdr lst)
+                                            always (string-match r str))) 4)
+                             ((and (string-match " " qpattern)
+                                   (cl-loop for r in lst
+                                            always (string-match r str))) 3)
+                             ((string-match r2 str) 2)
+                             ((string-match r3 str) 1)
+                             (t 0)))))
+           (sc1 (funcall score str1 reg1 reg2 reg3 split))
+           (sc2 (funcall score str2 reg1 reg2 reg3 split)))
+      (cond ((or (zerop (string-width qpattern))
+                 (and (zerop sc1) (zerop sc2)))
+             (string-lessp str1 str2))
+            ((= sc1 sc2)
+             (string-lessp str1 str2))
+            (t (> sc1 sc2)))))
+  (defun my-helm-fuzzy-matching-default-sort-fn (candidates _source &optional use-real)
+    "The transformer for sorting candidates in fuzzy matching.
+It sorts on the display part by default.
+
+Sorts CANDIDATES by their scores as calculated by
+`helm-score-candidate-for-pattern'. Ties in scores are sorted by
+length of the candidates. Set USE-REAL to non-`nil' to sort on the
+real part."
+    (if (string= helm-pattern "")
+        candidates
+      (let ((table-scr (make-hash-table :test 'equal)))
+        (sort candidates
+              (lambda (s1 s2)
+                ;; Score and measure the length on real or display part of candidate
+                ;; according to `use-real'.
+                (let* ((real-or-disp-fn (if use-real #'cdr #'car))
+                       (cand1 (if (consp s1)
+                                  (funcall real-or-disp-fn s1)
+                                s1))
+                       (cand2 (if (consp s2)
+                                  (funcall real-or-disp-fn s2)
+                                s2))
+                       (data1 (or (gethash cand1 table-scr)
+                                  (puthash cand1
+                                           (list (helm-score-candidate-for-pattern
+                                                  cand1 helm-pattern)
+                                                 (length (helm-stringify cand1)))
+                                           table-scr)))
+                       (data2 (or (gethash cand2 table-scr)
+                                  (puthash cand2
+                                           (list (helm-score-candidate-for-pattern
+                                                  cand2 helm-pattern)
+                                                 (length (helm-stringify cand2)))
+                                           table-scr)))
+                       (str1 (if (stringp s1) s1 (car s1)))
+                       (str2 (if (stringp s2) s2 (car s2)))
+                       (scr1 (car data1))
+                       (scr2 (car data2)))
+                  (cond ((= scr1 scr2)
+                         (string-lessp str1 str2))
+                        ((> scr1 scr2)))))))))
+  (advice-add 'helm-generic-sort-fn :override #'my-helm-generic-sort-fn)
+  (advice-add 'helm-fuzzy-matching-default-sort-fn :override #'my-helm-fuzzy-matching-default-sort-fn)
   ;; disable flycheck-pos-tip-mode temporarily during completion
   (defvar-local company-flycheck-pos-tip-mode-on-p nil)
   (defun company-turn-off-flycheck-pos-tip (&rest ignore)
