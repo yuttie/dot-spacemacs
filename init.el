@@ -374,6 +374,8 @@ you should place your code here."
   (set-fontset-font t 'unicode "icomoon" nil 'append)
   (set-fontset-font t 'unicode "FontAwesome" nil 'append)
   (set-fontset-font t 'unicode "octicons" nil 'append)
+  ;; Adjust the relative size of the Japanese font to the default font
+  (add-to-list 'face-font-rescale-alist (cons (rx "M+ 1m") 1.2))
   ;; C-h
   (define-key key-translation-map (kbd "C-h") (kbd "DEL"))
   ;; Escape
