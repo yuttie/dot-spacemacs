@@ -365,10 +365,9 @@ you should place your code here."
   ;; Add fallback fonts to the default fontset.
   ;; The second argument NAME must be `t' so that these fallback fonts are used
   ;; not only in the initial frame but also in subsequent frames.
-  (set-fontset-font t 'unicode "Midway Nerd Font" nil 'append)
-  (set-fontset-font t 'unicode "Source Code Pro" nil 'append)
   (set-fontset-font t 'unicode "M+ 1m" nil 'append)
   (set-fontset-font t 'unicode "Source Han Code JP" nil 'append)
+  (set-fontset-font t 'unicode "Midway Nerd Font" nil 'append)
   (set-fontset-font t 'unicode "PowerlineSymbols" nil 'append)
   (set-fontset-font t 'unicode "seti" nil 'append)
   (set-fontset-font t 'unicode "icomoon" nil 'append)
