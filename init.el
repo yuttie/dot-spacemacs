@@ -105,6 +105,7 @@ values."
    dotspacemacs-additional-packages
    '(
      base16-theme
+     (evil-adjust :location (recipe :fetcher github :repo "troyp/evil-adjust"))
      (inertial-scroll :location (recipe :fetcher github :repo "kiwanami/emacs-inertial-scroll"))
      color-theme-sanityinc-tomorrow
      )
@@ -524,6 +525,9 @@ real part."
       (evil-declare-not-repeat #'inertias-down)
       (define-key evil-normal-state-map (kbd "C-f") #'inertias-up)
       (define-key evil-normal-state-map (kbd "C-b") #'inertias-down)))
+  (use-package evil-adjust
+    :config
+    (evil-adjust))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
