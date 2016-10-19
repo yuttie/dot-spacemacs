@@ -365,13 +365,13 @@ you should place your code here."
   ;; Add fallback fonts to the default fontset.
   ;; The second argument NAME must be `t' so that these fallback fonts are used
   ;; not only in the initial frame but also in subsequent frames.
-  (set-fontset-font t 'unicode "octicons" nil 'prepend)
-  (set-fontset-font t 'unicode "FontAwesome" nil 'prepend)
-  (set-fontset-font t 'unicode "icomoon" nil 'prepend)
-  (set-fontset-font t 'unicode "seti" nil 'prepend)
-  (set-fontset-font t 'unicode "PowerlineSymbols" nil 'prepend)
-  (set-fontset-font t 'unicode "Midway Nerd Font" nil 'prepend)
-  (set-fontset-font t 'unicode "Source Han Code JP" nil 'prepend)
+  ;; (set-fontset-font t 'unicode "octicons" nil 'prepend)
+  ;; (set-fontset-font t 'unicode "FontAwesome" nil 'prepend)
+  ;; (set-fontset-font t 'unicode "icomoon" nil 'prepend)
+  ;; (set-fontset-font t 'unicode "seti" nil 'prepend)
+  ;; (set-fontset-font t 'unicode "PowerlineSymbols" nil 'prepend)
+  ;; (set-fontset-font t 'unicode "Midway Nerd Font" nil 'prepend)
+  ;; (set-fontset-font t 'unicode "Source Han Code JP" nil 'prepend)
   (set-fontset-font t 'unicode "M+ 1m" nil 'prepend)
   ;; Adjust the relative size of the Japanese font to the default font
   (add-to-list 'face-font-rescale-alist (cons (rx "M+ 1m") 1.2))
