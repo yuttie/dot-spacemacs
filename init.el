@@ -106,6 +106,7 @@ values."
    '(
      (evil-adjust :location (recipe :fetcher github :repo "troyp/evil-adjust"))
      (inertial-scroll :location (recipe :fetcher github :repo "kiwanami/emacs-inertial-scroll"))
+     diffview
      ;; theme
      twilight-bright-theme
      material-theme
