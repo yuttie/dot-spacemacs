@@ -43,7 +43,7 @@ values."
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-help-tooltip t)
-     helm
+     ivy
      ;; Emacs
      better-defaults
      org
