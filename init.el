@@ -367,16 +367,40 @@ you should place your code here."
   ;; Add fallback fonts to the default fontset.
   ;; The second argument NAME must be `t' so that these fallback fonts are used
   ;; not only in the initial frame but also in subsequent frames.
-  ;; (set-fontset-font t 'unicode "octicons" nil 'prepend)
-  ;; (set-fontset-font t 'unicode "FontAwesome" nil 'prepend)
-  ;; (set-fontset-font t 'unicode "icomoon" nil 'prepend)
-  ;; (set-fontset-font t 'unicode "seti" nil 'prepend)
-  ;; (set-fontset-font t 'unicode "PowerlineSymbols" nil 'prepend)
-  ;; (set-fontset-font t 'unicode "Midway Nerd Font" nil 'prepend)
-  ;; (set-fontset-font t 'unicode "Source Han Code JP" nil 'prepend)
-  (set-fontset-font t 'unicode "M+ 1m" nil 'prepend)
-  ;; Adjust the relative size of the Japanese font to the default font
-  (add-to-list 'face-font-rescale-alist (cons (rx "M+ 1m") 1.2))
+  ;; ABCDEabcde1234567890ABCDEabcde1234567890ABCDEabcde1234567890ABCDEabcde1234567890
+  ;; あいうえおあいうえおかきくけこかきくけこあいうえおあいうえおかきくけこかきくけこ
+  (defun setup-additional-fonts (&optional frame)
+    "Initialize configurations for window system.
+Configurations, which require X (there exists a frame), are
+placed in this function.
+
+When Emacs is started as a GUI application, just running this
+function initializes the configurations.
+
+When Emacs is started as a daemon, this function should be called
+just after the first frame is created by a client.  For this,
+this function is added to `after-make-frame-functions' and
+removed from them after the first call.
+
+This function is originally from https://github.com/tarao/dotfiles/blob/master/.emacs.d/init/window-system.el"
+    (with-selected-frame (or frame (selected-frame))
+      (when window-system
+        ;; (set-fontset-font t 'unicode "octicons" nil 'prepend)
+        ;; (set-fontset-font t 'unicode "FontAwesome" nil 'prepend)
+        ;; (set-fontset-font t 'unicode "icomoon" nil 'prepend)
+        ;; (set-fontset-font t 'unicode "seti" nil 'prepend)
+        ;; (set-fontset-font t 'unicode "PowerlineSymbols" nil 'prepend)
+        ;; (set-fontset-font t 'unicode "Midway Nerd Font" nil 'prepend)
+        ;; (set-fontset-font t 'unicode "Source Han Code JP" nil 'prepend)
+        (set-fontset-font t 'unicode "M+ 1m" nil 'prepend)
+        ;; Adjust the relative size of the Japanese font to the default font
+        (add-to-list 'face-font-rescale-alist (cons (rx "M+ 1m") 1.2))
+        ;; Call this function only once
+        (remove-hook 'window-setup-hook #'setup-additional-fonts)
+        (remove-hook 'after-make-frame-functions #'setup-additional-fonts))))
+  (when window-system
+    (add-hook 'window-setup-hook #'setup-additional-fonts t))
+  (add-hook 'after-make-frame-functions #'setup-additional-fonts)
   ;; C-h
   (define-key key-translation-map (kbd "C-h") (kbd "DEL"))
   ;; Escape
