@@ -426,6 +426,11 @@ This function is originally from https://github.com/tarao/dotfiles/blob/master/.
   (setq company-tooltip-align-annotations t)
   (define-key company-active-map (kbd "C-n") #'company-simple-complete-next)
   (define-key company-active-map (kbd "C-p") #'company-simple-complete-previous)
+  ;; vcs
+  ;; Workaround
+  (defun my-load-magit-before-spacemacs/vcs-transient-state/body (&optional ignored)
+    (require 'magit))
+  (advice-add 'spacemacs/vcs-transient-state/body :before #'my-load-magit-before-spacemacs/vcs-transient-state/body)
   ;; Helm
   ;; Break ties by lexicographic order
   (defun my-helm-generic-sort-fn (s1 s2)
