@@ -14,6 +14,9 @@
 \usepackage{graphicx}
 \usepackage{cite}
 \usepackage{url}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{etoolbox}
 %\usepackage[dvipdfmx]{xcolor}    % for use with dvipdfmx
 %\usepackage[dvipdfmx]{graphicx}  % for use with dvipdfmx
 \usepackage{array}  % for improved array and tabular environments
