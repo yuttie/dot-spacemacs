@@ -427,6 +427,9 @@ This function is originally from https://github.com/tarao/dotfiles/blob/master/.
   (define-key company-active-map (kbd "C-n") #'company-simple-complete-next)
   (define-key company-active-map (kbd "C-p") #'company-simple-complete-previous)
   ;; vcs
+  ;; magit
+  (setq magit-diff-refine-hunk 'all)
+  (setq smerge-refine-ignore-whitespace nil)
   ;; Workaround
   (defun my-load-magit-before-spacemacs/vcs-transient-state/body (&optional ignored)
     (require 'magit))
