@@ -394,7 +394,7 @@ This function is originally from https://github.com/tarao/dotfiles/blob/master/.
         ;; (set-fontset-font t 'unicode "Source Han Code JP" nil 'prepend)
         (set-fontset-font t 'unicode "M+ 1m" nil 'prepend)
         ;; Adjust the relative size of the Japanese font to the default font
-        (add-to-list 'face-font-rescale-alist (cons (rx "M+ 1m") 1.2))
+        (add-to-list 'face-font-rescale-alist (cons (rx "M+ 1m") 1.13636))
         ;; Call this function only once
         (remove-hook 'window-setup-hook #'setup-additional-fonts)
         (remove-hook 'after-make-frame-functions #'setup-additional-fonts))))
