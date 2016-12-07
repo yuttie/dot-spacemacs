@@ -60,6 +60,7 @@ values."
      haskell
      html
      ipython-notebook
+     java
      javascript
      latex
      markdown
