@@ -108,6 +108,7 @@ values."
      (evil-adjust :location (recipe :fetcher github :repo "troyp/evil-adjust"))
      (inertial-scroll :location (recipe :fetcher github :repo "kiwanami/emacs-inertial-scroll"))
      diffview
+     (zsh-history :location (recipe :fetcher github :repo "kawabata/emacs-zsh-history"))
      ;; theme
      twilight-bright-theme
      material-theme
@@ -533,6 +534,8 @@ real part."
   (setq git-gutter-fr+-side 'left-fringe)
   ;; Tramp
   (setq tramp-shell-prompt-pattern "\\(?:^\\|\\)[^]#$%>\n]*#?[]#$%>] *\\(\\[[0-9;]*[a-zA-Z] *\\)*")
+  ;; zsh-history
+  (use-package zsh-history)
   ;; inertial-scroll
   (use-package inertial-scroll
     :config
