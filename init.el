@@ -432,6 +432,8 @@ This function is originally from https://github.com/tarao/dotfiles/blob/master/.
   ;; magit
   (setq magit-diff-refine-hunk 'all)
   (setq smerge-refine-ignore-whitespace nil)
+  ;; markdown-mode
+  (setq markdown-enable-math t)
   ;; Workaround
   (defun my-load-magit-before-spacemacs/vcs-transient-state/body (&optional ignored)
     (require 'magit))
