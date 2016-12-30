@@ -418,6 +418,9 @@ This function is originally from https://github.com/tarao/dotfiles/blob/master/.
   (add-hook 'after-make-frame-functions #'swap-C-x-and-C-t)
   ;; Scroll
   (setq scroll-margin 3)
+  ;; linum
+  (setq linum-format "%4d")
+  (setq nlinum-format "%4d")
   ;; Evil
   (setq evil-want-fine-undo nil)
   (define-key evil-insert-state-map (kbd "C-a") #'move-beginning-of-line)
