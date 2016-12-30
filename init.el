@@ -77,6 +77,8 @@ values."
      typescript
      vimscript
      yaml
+     ;; Misc
+     nlinum
      ;; Source control
      git
      (version-control :variables
