@@ -93,7 +93,6 @@ values."
      deft
      nginx
      ;; Private layers
-     hlinum
      hydrangea-theme
      auto-completion+
      highlight-symbol
