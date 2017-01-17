@@ -428,6 +428,11 @@ This function is originally from https://github.com/tarao/dotfiles/blob/master/.
   (define-key evil-motion-state-map   (kbd "<remap> <evil-previous-line>") #'evil-previous-visual-line)
   (define-key evil-operator-state-map (kbd "<remap> <evil-next-line>")     #'evil-next-line)
   (define-key evil-operator-state-map (kbd "<remap> <evil-previous-line>") #'evil-previous-line)
+  ;; Include an underscore as a word character
+  (add-hook 'rust-mode-hook   #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'python-mode-hook #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'ruby-mode-hook   #'(lambda () (modify-syntax-entry ?_ "w")))
+  (add-hook 'js2-mode-hook    #'(lambda () (modify-syntax-entry ?_ "w")))
   ;; company-mode
   (setq company-tooltip-align-annotations t)
   (define-key company-active-map (kbd "C-n") #'company-simple-complete-next)
