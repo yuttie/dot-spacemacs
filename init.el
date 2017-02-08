@@ -36,10 +36,10 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ;; Checkers
+     ;; checkers
      spell-checking
      syntax-checking
-     ;; Completion
+     ;; completion
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t
                       auto-completion-enable-help-tooltip t)
@@ -48,14 +48,20 @@ values."
      better-defaults
      org
      typography
-     ;; Programming and markup languages
+     ;; email
+     mu4e
+     ;; fun
+     emoji
+     ;; lang
      asciidoc
      bibtex
      c-c++
      csv
      d
+     elixir
      emacs-lisp
      ess
+     go
      graphviz
      haskell
      html
@@ -77,19 +83,19 @@ values."
      typescript
      vimscript
      yaml
-     ;; Misc
+     ;; misc
      nlinum
-     ;; Source control
+     ;; source-control
      git
      (version-control :variables
                       version-control-diff-tool 'git-gutter+
                       version-control-global-margin t)
-     ;; Spacemacs distribution layers
+     ;; spacemacs
      (spacemacs-layouts :variables
                         spacemacs-layouts-directory "./")
-     ;; Tags
+     ;; tags
      gtags
-     ;; Tools
+     ;; tools
      deft
      nginx
      ;; Private layers
