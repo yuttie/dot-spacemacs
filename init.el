@@ -69,7 +69,7 @@ values."
      java
      javascript
      latex
-     markdown
+     (markdown :variables markdown-live-preview-engine 'vmd)
      nim
      ocaml
      php
@@ -443,6 +443,8 @@ This function is originally from https://github.com/tarao/dotfiles/blob/master/.
   (setq company-tooltip-align-annotations t)
   (define-key company-active-map (kbd "C-n") #'company-simple-complete-next)
   (define-key company-active-map (kbd "C-p") #'company-simple-complete-previous)
+  ;; markdown-mode
+  (setq markdown-header-scaling t)
   ;; vcs
   ;; magit
   (setq magit-diff-refine-hunk 'all)
