@@ -357,6 +357,10 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  ;; Don't use shells other than /bin/sh in Emacs, like fish
+  (setq explicit-shell-file-name "/bin/sh")
+  (setq shell-file-name "/bin/sh")
+  (setenv "SHELL" shell-file-name)
   ;; Ignore a warning about PATH and MANPATH from exec-path-from-shell.el
   (setq exec-path-from-shell-check-startup-files nil)
   ;; Indentation for CC Mode
