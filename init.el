@@ -457,9 +457,13 @@ This function is originally from https://github.com/tarao/dotfiles/blob/master/.
   (add-hook 'ruby-mode-hook   #'(lambda () (modify-syntax-entry ?_ "w")))
   (add-hook 'js2-mode-hook    #'(lambda () (modify-syntax-entry ?_ "w")))
   ;; company-mode
-  (setq company-tooltip-align-annotations t)
-  (define-key company-active-map (kbd "C-n") #'company-simple-complete-next)
-  (define-key company-active-map (kbd "C-p") #'company-simple-complete-previous)
+  (use-package company
+    :defer t
+    :init
+    (setq company-tooltip-align-annotations t)
+    :config
+    (define-key company-active-map (kbd "C-n") #'company-simple-complete-next)
+    (define-key company-active-map (kbd "C-p") #'company-simple-complete-previous))
   ;; markdown-mode
   (setq markdown-header-scaling t)
   ;; vcs
