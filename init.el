@@ -566,7 +566,7 @@ real part."
   (add-hook 'company-completion-finished-hook 'company-maybe-turn-on-flycheck-pos-tip)
   (add-hook 'company-completion-cancelled-hook 'company-maybe-turn-on-flycheck-pos-tip)
   ;; indent-guide
-  (setq indent-guide-delay 0.1)
+  (setq indent-guide-delay 0.5)
   (setq indent-guide-recursive t)
   (add-hook 'prog-mode-hook #'indent-guide-mode)
   ;; git-gutter+
