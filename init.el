@@ -466,6 +466,8 @@ This function is originally from https://github.com/tarao/dotfiles/blob/master/.
     (define-key company-active-map (kbd "C-p") #'company-simple-complete-previous))
   ;; markdown-mode
   (setq markdown-header-scaling t)
+  ;; typescript-mode
+  (setq typescript-indent-level 2)
   ;; vcs
   ;; magit
   (setq magit-diff-refine-hunk 'all)
